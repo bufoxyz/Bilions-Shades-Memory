@@ -3,231 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GANTI [NAMA ANDA] DENGAN NAMA ANDA -->
     <title>Bilion Shades Memory | By [Nama Anda]</title>
-    <!-- Font Keren dan Profesional -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     
-    <style>
-        /* CSS: Desain Gelap, Modern, dan Responsif */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #0d1117; /* Background Gelap (Tech/Kripto Vibe) */
-            color: #c9d1d9;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 800px;
-            background-color: #161b22;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
-
-        /* HEADER DAN STATS */
-        header h1 {
-            color: #4CAF50; /* Warna Hijau Kripto/Profit */
-            margin-bottom: 5px;
-            font-weight: 900;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            margin: 5px 10px;
-        }
-
-        .stat-item span:first-child {
-            font-weight: 400;
-            color: #8b949e;
-            display: block;
-        }
-
-        .stat-item span:last-child {
-            font-weight: 700;
-            font-size: 1.5em;
-            color: #ffffff;
-            display: block;
-        }
-
-        .btn {
-            background-color: #0366d6; /* Warna Biru Discord/Profesional */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-weight: 700;
-        }
-
-        .btn:hover {
-            background-color: #005cc5;
-        }
-
-        hr {
-            border: 0;
-            height: 1px;
-            background: #30363d;
-            margin: 20px 0;
-        }
-
-        /* GRID PERMAINAN KARTU */
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 10px;
-            perspective: 1000px; /* Untuk Efek 3D Flip */
-            margin: 20px auto;
-            width: 100%;
-        }
-
-        /* KARTU */
-        .card {
-            height: 120px;
-            position: relative;
-            transform-style: preserve-3d;
-            cursor: pointer;
-            transition: transform 0.6s;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        @media (max-width: 600px) {
-            .card {
-                height: 90px;
-            }
-        }
-
-        .card.flip {
-            transform: rotateY(180deg); 
-            pointer-events: none; 
-        }
-
-        .card-face {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            backface-visibility: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 8px;
-            padding: 5px;
-        }
-
-        .card-front {
-            background-color: #21262d; 
-            transform: rotateY(180deg); 
-        }
-
-        .card-front img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        .card-back {
-            background-color: #0d1117; 
-            border: 3px solid #4CAF50; 
-            padding: 10px;
-        }
-
-        .card-back img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .card.matched {
-            opacity: 0.5; 
-            pointer-events: none;
-        }
-
-        /* LEADERBOARD */
-        .leaderboard-section {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #21262d;
-            border-radius: 8px;
-            text-align: left;
-        }
-
-        .leaderboard-section h2 {
-            color: #4CAF50;
-            text-align: center;
-        }
-
-        .leaderboard-section p {
-            text-align: center;
-            font-size: 0.8em;
-            color: #8b949e;
-            margin-bottom: 15px;
-        }
-
-        #leaderboard-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        #leaderboard-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #30363d;
-            display: flex;
-            justify-content: space-between;
-            font-weight: 700;
-        }
-
-        /* MODAL WINNER */
-        .modal {
-            position: fixed;
-            z-index: 10;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: none; 
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #161b22;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
-            animation: fadeIn 0.5s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-    </style>
+    <!-- Memanggil file CSS eksternal -->
+    <link rel="stylesheet" href="style.css"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
-        <!-- HEADER / INFO GAME -->
         <header>
             <h1>👓 Bilion Shades Memory 💰</h1>
             <p>Uji fokus dan memori Anda dengan ikon kacamata Bilions Network!</p>
@@ -240,308 +26,38 @@
                     <span>Gerakan:</span>
                     <span id="moves">0</span>
                 </div>
-                <button id="startButton" class="btn">Mulai Game Baru</button>
+                <!-- Tombol "Mulai Game" diubah namanya agar lebih jelas -->
+                <button id="startButton" class="btn">Mulai Game Baru</button> 
             </div>
         </header>
 
         <hr>
 
-        <!-- AREA PERMAINAN KARTU (GRID) -->
-        <main id="game-board" class="game-grid">
-            <!-- Kartu akan dimasukkan di sini menggunakan JavaScript -->
-        </main>
+        <!-- Area papan game (akan diisi oleh script.js) -->
+        <main id="game-board" class="game-grid"></main>
 
-        <!-- LEADERBOARD (UNSUR KOMUNITAS) -->
         <aside class="leaderboard-section">
             <h2>🏆 Leaderboard Lokal (Top 5)</h2>
             <p>*Dibangun untuk kompetisi antar anggota. Buktikan skor Anda!</p>
             <ol id="leaderboard-list">
-                <!-- Skor akan dimasukkan di sini menggunakan JavaScript (localStorage) -->
+                <!-- Akan diisi oleh script.js -->
             </ol>
         </aside>
 
-        <!-- MODAL/POPUP KETIKA GAME SELESAI -->
+        <!-- Modal/Popup ketika menang -->
         <div id="win-modal" class="modal">
             <div class="modal-content">
                 <h2>Selamat! Anda Menang!</h2>
                 <p>Waktu Anda: <span id="final-time"></span></p>
                 <p>Total Gerakan: <span id="final-moves"></span></p>
-                <p>Permainan Selesai! Bagikan skor ini di komunitas!</p>
+                <p>Bagikan skor ini di komunitas!</p>
                 <button id="closeModal" class="btn">Tutup</button>
             </div>
         </div>
-
     </div>
 
-    <script>
-        // --- DATA PATH GAMBAR KACAMATA (8 IKON UNIK + 1 BELAKANG KARTU) ---
-        // PENTING: File-file ini harus ada di folder 'assets/' di repositori GitHub Anda.
-        // Anda perlu membuat 9 file SVG/PNG dengan nama berikut.
-        const CARD_ICONS = [
-            'assets/card-1.svg', // Biru Terang
-            'assets/card-2.svg', // Merah Gelap
-            'assets/card-3.svg', // Hijau Limau
-            'assets/card-4.svg', // Oranye
-            'assets/card-5.svg', // Ungu
-            'assets/card-6.svg', // Cyan
-            'assets/card-7.svg', // Cokelat
-            'assets/card-8.svg'  // Abu-abu Gelap
-        ];
-
-        // Gambar Belakang Kartu (Logo Bilions Network - Ikon B)
-        const CARD_BACK_IMAGE = 'assets/card-back.svg';
-        
-        const GAME_SIZE = 16; 
-
-        // --- ELEMEN DOM ---
-        const gameBoard = document.getElementById('game-board');
-        const startButton = document.getElementById('startButton');
-        const timerDisplay = document.getElementById('timer');
-        const movesDisplay = document.getElementById('moves');
-        const leaderboardList = document.getElementById('leaderboard-list');
-        const winModal = document.getElementById('win-modal');
-        const finalTime = document.getElementById('final-time');
-        const finalMoves = document.getElementById('final-moves');
-        const closeModalButton = document.getElementById('closeModal');
-
-        // --- VARIABEL STATE GAME ---
-        let cardsArray = [];
-        let cardsFlipped = []; 
-        let matchesFound = 0;
-        let moves = 0;
-        let gameStarted = false;
-        let timerInterval;
-        let startTime;
-
-        // --- FUNGSI UTAMA GAME ---
-
-        // 1. Algoritma Fisher-Yates Shuffle
-        function shuffle(array) {
-            let currentIndex = array.length, randomIndex;
-
-            while (currentIndex !== 0) {
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex--;
-
-                [array[currentIndex], array[randomIndex]] = [
-                    array[randomIndex], array[currentIndex]
-                ];
-            }
-            return array;
-        }
-
-        // 2. Mempersiapkan Data Kartu (Menggandakan dan Mengacak)
-        function initializeCards() {
-            let gameCards = [...CARD_ICONS, ...CARD_ICONS];
-            cardsArray = shuffle(gameCards);
-        }
-
-        // 3. Membuat Elemen Kartu di DOM
-        function createBoard() {
-            gameBoard.innerHTML = ''; 
-            cardsArray.forEach((imagePath, index) => {
-                const card = document.createElement('div');
-                card.classList.add('card');
-                card.dataset.id = index; 
-                card.dataset.image = imagePath; // Kunci pasangan
-
-                // Bagian Depan Kartu (Ikon Kacamata)
-                const cardFront = document.createElement('div');
-                cardFront.classList.add('card-face', 'card-front');
-                const img = document.createElement('img');
-                img.src = imagePath;
-                cardFront.appendChild(img);
-
-                // Bagian Belakang Kartu (Logo Bilions)
-                const cardBack = document.createElement('div');
-                cardBack.classList.add('card-face', 'card-back');
-                const backImg = document.createElement('img');
-                backImg.src = CARD_BACK_IMAGE;
-                cardBack.appendChild(backImg);
-
-                card.appendChild(cardFront);
-                card.appendChild(cardBack);
-                
-                card.addEventListener('click', handleCardClick);
-                gameBoard.appendChild(card);
-            });
-        }
-
-        // 4. Logika Timer
-        function startTimer() {
-            startTime = Date.now();
-            timerInterval = setInterval(() => {
-                const elapsed = Date.now() - startTime;
-                const totalSeconds = Math.floor(elapsed / 1000);
-                const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
-                const seconds = String(totalSeconds % 60).padStart(2, '0');
-                timerDisplay.textContent = `${minutes}:${seconds}`;
-            }, 1000);
-        }
-
-        function stopTimer() {
-            clearInterval(timerInterval);
-        }
-
-        // 5. Penanganan Klik Kartu
-        function handleCardClick(event) {
-            if (!gameStarted || cardsFlipped.length >= 2 || event.currentTarget.classList.contains('flip') || event.currentTarget.classList.contains('matched')) {
-                return; 
-            }
-
-            const clickedCard = event.currentTarget;
-            clickedCard.classList.add('flip');
-            cardsFlipped.push(clickedCard);
-
-            if (cardsFlipped.length === 2) {
-                moves++;
-                movesDisplay.textContent = moves;
-                gameBoard.style.pointerEvents = 'none'; 
-                setTimeout(checkForMatch, 1000); 
-            }
-        }
-
-        // 6. Memeriksa Kecocokan Kartu
-        function checkForMatch() {
-            const [card1, card2] = cardsFlipped;
-            
-            if (card1.dataset.image === card2.dataset.image) {
-                card1.classList.add('matched');
-                card2.classList.add('matched');
-                card1.removeEventListener('click', handleCardClick);
-                card2.removeEventListener('click', handleCardClick);
-                matchesFound++;
-                
-                if (matchesFound === CARD_ICONS.length) {
-                    endGame();
-                }
-            } else {
-                card1.classList.remove('flip');
-                card2.classList.remove('flip');
-            }
-
-            cardsFlipped = []; 
-            gameBoard.style.pointerEvents = 'auto'; 
-        }
-
-        // 7. Mengakhiri Game dan Menampilkan Modal
-        function endGame() {
-            stopTimer();
-            gameStarted = false;
-
-            const finalTimeValue = timerDisplay.textContent;
-
-            finalTime.textContent = finalTimeValue;
-            finalMoves.textContent = moves;
-            winModal.style.display = 'flex';
-            
-            saveScore(finalTimeValue, moves);
-            renderLeaderboard();
-            
-            startButton.disabled = false;
-            startButton.textContent = 'Mulai Game Baru';
-        }
-
-        // 8. Logika Memulai Game
-        function startGame() {
-            stopTimer();
-            gameStarted = true;
-            moves = 0;
-            matchesFound = 0;
-            movesDisplay.textContent = 0;
-            timerDisplay.textContent = '00:00';
-            
-            startButton.disabled = true;
-            startButton.textContent = 'Game Berjalan...'; 
-
-            initializeCards();
-            createBoard();
-            startTimer();
-        }
-
-
-        // --- FUNGSI LEADERBOARD LOKAL ---
-
-        const LEADERBOARD_KEY = 'bilionShadesLeaderboard';
-
-        function getScores() {
-            try {
-                const scores = localStorage.getItem(LEADERBOARD_KEY);
-                return scores ? JSON.parse(scores) : [];
-            } catch (e) {
-                console.error("Gagal mengambil skor dari localStorage:", e);
-                return [];
-            }
-        }
-
-        function saveScore(timeStr, moves) {
-            if (moves === 0) return; 
-
-            const scores = getScores();
-            const [minutes, seconds] = timeStr.split(':').map(Number);
-            const totalSeconds = (minutes * 60) + seconds;
-
-            scores.push({ time: timeStr, totalSeconds, moves, date: new Date().toLocaleDateString('id-ID') });
-
-            scores.sort((a, b) => {
-                if (a.totalSeconds !== b.totalSeconds) {
-                    return a.totalSeconds - b.totalSeconds;
-                }
-                return a.moves - b.moves;
-            });
-
-            const topScores = scores.slice(0, 5);
-            try {
-                localStorage.setItem(LEADERBOARD_KEY, JSON.stringify(topScores));
-            } catch (e) {
-                console.error("Gagal menyimpan skor ke localStorage:", e);
-            }
-        }
-
-        function renderLeaderboard() {
-            const scores = getScores();
-            leaderboardList.innerHTML = '';
-            
-            if (scores.length === 0) {
-                leaderboardList.innerHTML = '<li style="justify-content: center; color: #8b949e;">Belum ada skor. Mainkan sekarang!</li>';
-                return;
-            }
-
-            scores.forEach((score, index) => {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `
-                    <span>#${index + 1}. ${score.time} (${score.moves} Gerakan)</span>
-                    <small style="color: #8b949e;">${score.date}</small>
-                `;
-                leaderboardList.appendChild(listItem);
-            });
-        }
-
-
-        // --- TITIK AWAL APLIKASI ---
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderLeaderboard(); 
-
-            startButton.addEventListener('click', () => {
-                startGame();
-            });
-
-            closeModalButton.addEventListener('click', () => {
-                winModal.style.display = 'none';
-            });
-
-            winModal.addEventListener('click', (e) => {
-                if (e.target === winModal) {
-                    winModal.style.display = 'none';
-                }
-            });
-
-            initializeCards();
-            createBoard();
-            
-            startButton.disabled = false;
-        });
-    </script>
+    <!-- Memanggil file JavaScript eksternal TEPAT SEBELUM </body> -->
+    <script src="script.js"></script>
 </body>
 </html>
+
