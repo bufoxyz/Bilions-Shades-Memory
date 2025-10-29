@@ -37,6 +37,8 @@ header h1 {
     justify-content: space-around;
     align-items: center;
     margin: 20px 0;
+    flex-wrap: wrap; /* Agar rapi di HP */
+    gap: 15px;
 }
 
 .stat-item span:first-child {
@@ -81,11 +83,15 @@ hr {
     perspective: 1000px; /* Diperlukan untuk efek 3D flip */
     margin: 20px auto;
     width: 100%;
+    max-width: 500px; /* Batasi lebar grid agar rapi */
 }
 
 /* KARTU */
 .card {
-    height: 120px;
+    /* Menggunakan aspect-ratio agar kartu tetap kotak */
+    aspect-ratio: 1 / 1; 
+    height: auto; /* Dihapus (diganti aspect-ratio) */
+    
     position: relative;
     transform-style: preserve-3d;
     cursor: pointer;
@@ -117,9 +123,11 @@ hr {
     transform: rotateY(180deg); /* Awalnya terbalik */
 }
 
-.card-front img {
+/* INI PENTING: Style untuk SEMUA gambar di dalam kartu */
+.card-face img {
     max-width: 90%;
     max-height: 90%;
+    object-fit: contain; /* Memastikan gambar tidak terpotong */
 }
 
 /* Bagian Belakang Kartu (Logo Bilions) */
@@ -141,6 +149,9 @@ hr {
     background-color: #21262d;
     border-radius: 8px;
     text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .leaderboard-section h2 {
