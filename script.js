@@ -20,7 +20,6 @@ const gameBoard = document.getElementById('game-board');
 const startButton = document.getElementById('startButton');
 const timerDisplay = document.getElementById('timer');
 const movesDisplay = document.getElementById('moves');
-// const leaderboardList = document.getElementById('leaderboard-list'); // Dihapus
 const winModal = document.getElementById('win-modal');
 const finalTime = document.getElementById('final-time');
 const finalMoves = document.getElementById('final-moves');
@@ -157,9 +156,6 @@ function endGame() {
     finalMoves.textContent = moves;
     winModal.style.display = 'flex';
     
-    // saveScore(finalTimeValue, moves); // Dihapus
-    // renderLeaderboard(); // Dihapus
-    
     startButton.disabled = false;
     startButton.textContent = 'Start New Game';
 }
@@ -174,7 +170,7 @@ function startGame() {
     timerDisplay.textContent = '00:00';
     
     startButton.disabled = true;
-    startButton.textContent = 'Game in Progress...'; // Teks Bahasa Indonesia yang diperbaiki
+    startButton.textContent = 'Game in Progress...'; 
 
     initializeCards();
     createBoard();
@@ -182,13 +178,9 @@ function startGame() {
 }
 
 
-// --- LOCAL LEADERBOARD FUNCTIONS --- Dihapus total
-
-
 // --- APPLICATION ENTRY POINT ---
 
 document.addEventListener('DOMContentLoaded', () => {
-    // renderLeaderboard(); // Dihapus
 
     startButton.addEventListener('click', () => {
         startGame();
