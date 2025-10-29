@@ -1,5 +1,4 @@
 // --- IMAGE PATH DATA (8 UNIQUE ICONS + 1 CARD BACK) ---
-// This version is adjusted for your .PNG files in /assets
 const CARD_ICONS = [
     'assets/1.png',
     'assets/2.png',
@@ -11,8 +10,8 @@ const CARD_ICONS = [
     'assets/8.png'
 ];
 
-// Card Back Image (Bilions Network Logo - B Icon)
-const CARD_BACK_IMAGE = 'assets/9.png'; // Using 9.png as the back image
+// Card Back Image
+const CARD_BACK_IMAGE = 'assets/9.png';
 
 const GAME_SIZE = 16; 
 
@@ -21,7 +20,7 @@ const gameBoard = document.getElementById('game-board');
 const startButton = document.getElementById('startButton');
 const timerDisplay = document.getElementById('timer');
 const movesDisplay = document.getElementById('moves');
-const leaderboardList = document.getElementById('leaderboard-list');
+// const leaderboardList = document.getElementById('leaderboard-list'); // Dihapus
 const winModal = document.getElementById('win-modal');
 const finalTime = document.getElementById('final-time');
 const finalMoves = document.getElementById('final-moves');
@@ -158,8 +157,8 @@ function endGame() {
     finalMoves.textContent = moves;
     winModal.style.display = 'flex';
     
-    saveScore(finalTimeValue, moves);
-    renderLeaderboard();
+    // saveScore(finalTimeValue, moves); // Dihapus
+    // renderLeaderboard(); // Dihapus
     
     startButton.disabled = false;
     startButton.textContent = 'Start New Game';
@@ -175,7 +174,7 @@ function startGame() {
     timerDisplay.textContent = '00:00';
     
     startButton.disabled = true;
-    startButton.textContent = 'Game In Progress...'; 
+    startButton.textContent = 'Game in Progress...'; // Teks Bahasa Indonesia yang diperbaiki
 
     initializeCards();
     createBoard();
@@ -183,68 +182,13 @@ function startGame() {
 }
 
 
-// --- LOCAL LEADERBOARD FUNCTIONS ---
-
-const LEADERBOARD_KEY = 'bilionsNetworkMemoryLeaderboard'; // Changed key name
-
-function getScores() {
-    try {
-        const scores = localStorage.getItem(LEADERBOARD_KEY);
-        return scores ? JSON.parse(scores) : [];
-    } catch (e) {
-        console.error("Failed to retrieve scores from localStorage:", e);
-        return [];
-    }
-}
-
-function saveScore(timeStr, moves) {
-    if (moves === 0) return; 
-
-    const scores = getScores();
-    const [minutes, seconds] = timeStr.split(':').map(Number);
-    const totalSeconds = (minutes * 60) + seconds;
-
-    scores.push({ time: timeStr, totalSeconds, moves, date: new Date().toLocaleDateString('en-US') }); // Changed locale
-
-    scores.sort((a, b) => {
-        if (a.totalSeconds !== b.totalSeconds) {
-            return a.totalSeconds - b.totalSeconds;
-        }
-        return a.moves - b.moves;
-    });
-
-    const topScores = scores.slice(0, 5);
-    try {
-        localStorage.setItem(LEADERBOARD_KEY, JSON.stringify(topScores));
-    } catch (e) {
-        console.error("Failed to save scores to localStorage:", e);
-    }
-}
-
-function renderLeaderboard() {
-    const scores = getScores();
-    leaderboardList.innerHTML = '';
-    
-    if (scores.length === 0) {
-        leaderboardList.innerHTML = '<li style="justify-content: center; color: #6a95e0;">No scores yet. Play now!</li>'; // Changed text and color
-        return;
-    }
-
-    scores.forEach((score, index) => {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `
-            <span>#${index + 1}. ${score.time} (${score.moves} Moves)</span>
-            <small style="color: #6a95e0;">${score.date}</small>
-        `;
-        leaderboardList.appendChild(listItem);
-    });
-}
+// --- LOCAL LEADERBOARD FUNCTIONS --- Dihapus total
 
 
 // --- APPLICATION ENTRY POINT ---
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderLeaderboard(); 
+    // renderLeaderboard(); // Dihapus
 
     startButton.addEventListener('click', () => {
         startGame();
