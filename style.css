@@ -5,11 +5,19 @@
     padding: 0;
 }
 
+/* VARIBEL WARNA UNTUK SKEMA NEON */
+:root {
+    --color-neon: #00f0ff; 
+    --color-dark-blue: #0c1825;
+    --color-mid-blue: #1a2a3a;
+    --color-border: #2a4058;
+}
+
 body {
-    /* Menggunakan font Orbitron sebagai default, Exo 2 sebagai fallback modern */
-    font-family: 'Orbitron', 'Exo 2', sans-serif; 
-    background-color: #0c1825; /* Sangat gelap, mendekati hitam kebiruan */
-    color: #e0f0ff; /* Teks terang, sedikit kebiruan */
+    /* MENGGUNAKAN FONT CHAKRA PETCH */
+    font-family: 'Chakra Petch', sans-serif; 
+    background-color: var(--color-dark-blue); 
+    color: #e0f0ff; 
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -20,26 +28,53 @@ body {
 .container {
     width: 90%;
     max-width: 800px;
-    background-color: #1a2a3a; /* Biru gelap untuk container */
+    background-color: var(--color-mid-blue); 
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Shadow lebih gelap */
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8); 
     text-align: center;
-    border: 1px solid #2a4058; /* Border tipis untuk kesan tech */
+    border: 1px solid var(--color-border); 
 }
 
 /* HEADER AND STATS */
 header h1 {
-    color: #4a90e2; /* Biru cerah untuk judul */
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    color: var(--color-neon); 
     margin-bottom: 5px;
-    text-shadow: 0 0 8px rgba(74, 144, 226, 0.5); /* Efek glow biru */
-    font-size: 2.2em; /* Ukuran lebih besar */
+    /* EFEK GLOW TEBAL */
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.8), 0 0 5px rgba(0, 240, 255, 0.5); 
+    font-size: 2.5em; 
+    line-height: 1.1; 
 }
 
 header p {
-    color: #a0c2e9; /* Teks deskripsi lebih lembut */
-    font-family: 'Exo 2', sans-serif; /* Font sekunder untuk readability */
+    color: #a0c2e9; 
+    font-family: 'Exo 2', sans-serif; 
 }
+
+/* KREDIT/TAUTAN STYLING */
+.credit {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.9em;
+    color: #a0c2e9; 
+}
+
+.credit a {
+    color: var(--color-neon); 
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5); 
+}
+
+.credit a:hover {
+    color: #fff; 
+    text-shadow: 0 0 8px var(--color-neon); 
+}
+
 
 .stats {
     display: flex;
@@ -52,38 +87,41 @@ header p {
 
 .stat-item span:first-child {
     font-weight: 400;
-    color: #a0c2e9; /* Warna teks label stat */
+    color: #a0c2e9; 
 }
 
 .stat-item span:last-child {
+    font-family: 'Exo 2', sans-serif; 
     font-weight: 700;
-    font-size: 1.6em; /* Ukuran lebih besar */
-    color: #ffffff; /* Angka statistik putih bersih */
+    font-size: 1.7em; 
+    color: var(--color-neon); 
     display: block;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Efek glow ringan */
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.6); 
 }
 
 .btn {
-    background-color: #4a90e2; /* Biru cerah untuk tombol */
-    color: white;
+    background-color: var(--color-neon); 
+    color: var(--color-dark-blue); 
     border: none;
-    padding: 12px 25px; /* Tombol sedikit lebih besar */
-    border-radius: 8px; /* Sudut lebih membulat */
+    padding: 12px 25px; 
+    border-radius: 8px; 
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     font-weight: 700;
-    text-transform: uppercase; /* Huruf kapital semua */
+    text-transform: uppercase; 
     letter-spacing: 0.5px;
-    box-shadow: 0 2px 10px rgba(74, 144, 226, 0.4); /* Shadow biru untuk tombol */
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5); 
 }
 
 .btn:hover {
-    background-color: #357bd8; /* Biru lebih gelap saat hover */
-    transform: translateY(-2px); /* Efek angkat tombol */
+    background-color: #00c3d0; 
+    transform: translateY(-2px); 
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.8);
 }
 
 .btn:disabled {
-    background-color: #3d5a7d; /* Warna abu-abu kebiruan saat disabled */
+    background-color: #3d5a7d; 
+    color: #a0c2e9;
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
@@ -92,7 +130,7 @@ header p {
 hr {
     border: 0;
     height: 1px;
-    background: #2a4058; /* Garis pemisah biru gelap */
+    background: #2a4058; 
     margin: 25px 0;
 }
 
@@ -100,11 +138,11 @@ hr {
 .game-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    gap: 12px; /* Jarak antar kartu sedikit lebih besar */
+    gap: 12px; 
     perspective: 1000px;
     margin: 25px auto;
     width: 100%;
-    max-width: 520px; /* Sedikit lebih lebar */
+    max-width: 520px; 
 }
 
 /* CARD */
@@ -113,9 +151,9 @@ hr {
     position: relative;
     transform-style: preserve-3d;
     cursor: pointer;
-    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Animasi flip lebih "pegas" */
-    border-radius: 10px; /* Sudut kartu lebih membulat */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4), 0 0 15px rgba(74, 144, 226, 0.2); /* Shadow lebih menonjol dengan glow biru */
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
+    border-radius: 10px; 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); 
 }
 
 .card.flip {
@@ -137,31 +175,30 @@ hr {
 
 /* Card Front (Bilions Icon) */
 .card-front {
-    background-color: #2a4058; /* Warna latar depan kartu saat terbuka */
+    background-color: #2a4058; 
     transform: rotateY(180deg);
 }
 
 .card-face img {
-    max-width: 85%; /* Gambar ikon sedikit lebih kecil */
+    max-width: 85%; 
     max-height: 85%;
     object-fit: contain; 
 }
 
 /* Card Back (Bilions Logo) */
 .card-back {
-    background-color: #1a2a3a; /* Latar belakang belakang kartu */
-    border: 3px solid #4a90e2; /* Border biru cerah */
+    background-color: var(--color-mid-blue); 
+    border: 3px solid var(--color-neon); 
+    box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.5); 
     transform: rotateY(0deg); 
 }
 
 .card.matched {
-    opacity: 0.3; /* Sedikit lebih transparan saat matched */
+    opacity: 0.2; 
     pointer-events: none;
-    box-shadow: 0 0 10px rgba(74, 144, 226, 0.8), inset 0 0 10px rgba(74, 144, 226, 0.8); /* Glow lebih kuat saat matched */
+    box-shadow: 0 0 15px var(--color-neon), inset 0 0 15px var(--color-neon); 
     transition: opacity 0.5s ease-out, box-shadow 0.5s ease-out;
 }
-
-/* Leaderboard Styling Dihapus total */
 
 
 /* MODAL WINNER */
@@ -172,29 +209,29 @@ hr {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Latar belakang modal lebih gelap */
+    background-color: rgba(0, 0, 0, 0.85); 
     display: none; 
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px); /* Efek blur pada background */
+    backdrop-filter: blur(5px); 
 }
 
 .modal-content {
-    background-color: #1a2a3a; /* Warna background modal */
-    padding: 35px; /* Padding lebih besar */
-    border-radius: 15px; /* Sudut lebih membulat */
+    background-color: var(--color-mid-blue); 
+    padding: 35px; 
+    border-radius: 15px; 
     text-align: center;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(74, 144, 226, 0.6); /* Shadow dan glow biru */
-    animation: fadeInScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Animasi pop-in lebih hidup */
-    border: 2px solid #4a90e2; /* Border biru cerah */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.6); 
+    animation: fadeInScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; 
+    border: 2px solid var(--color-neon); 
     max-width: 400px;
 }
 
 .modal-content h2 {
-    color: #4a90e2;
-    font-size: 2.5em; /* Ukuran h2 modal lebih besar */
+    color: var(--color-neon);
+    font-size: 2.5em; 
     margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(74, 144, 226, 0.7);
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
 }
 
 .modal-content p {
@@ -206,7 +243,8 @@ hr {
 
 .modal-content p span {
     font-weight: 700;
-    color: #8ed0ff;
+    color: var(--color-neon);
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
 }
 
 @keyframes fadeInScale {
@@ -219,7 +257,7 @@ hr {
     .container {
         padding: 20px;
         width: 100%;
-        border-radius: 0;
+        border-radius: 0; 
     }
 
     header h1 {
@@ -232,7 +270,7 @@ hr {
     }
 
     .stat-item span:last-child {
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
 
     .btn {
@@ -243,15 +281,13 @@ hr {
     .game-grid {
         gap: 8px;
         max-width: 100%;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr); 
     }
 
     .card {
         border-radius: 8px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
-
-    /* Leaderboard media query styling Dihapus */
 
     .modal-content {
         padding: 25px;
