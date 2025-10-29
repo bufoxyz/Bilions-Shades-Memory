@@ -1,19 +1,18 @@
 // --- DATA PATH GAMBAR KACAMATA (8 IKON UNIK + 1 BELAKANG KARTU) ---
-// Versi ini sudah disesuaikan untuk memanggil file .jpg Anda
+// Versi ini sudah disesuaikan dengan file .PNG Anda di /assets
 const CARD_ICONS = [
-    'assets/1.jpg', // Diubah ke .jpg
-    'assets/2.jpg', // Diubah ke .jpg
-    'assets/3.jpg', // Diubah ke .jpg
-    'assets/4.jpg', // Diubah ke .jpg
-    'assets/5.jpg', // Diubah ke .jpg
-    'assets/6.jpg', // Diubah ke .jpg
-    'assets/7.jpg', // Diubah ke .jpg
-    'assets/8.jpg'  // Diubah ke .jpg
+    'assets/1.png',
+    'assets/2.png',
+    'assets/3.png',
+    'assets/4.png',
+    'assets/5.png',
+    'assets/6.png',
+    'assets/7.png',
+    'assets/8.png'
 ];
 
 // Gambar Belakang Kartu (Logo Bilions Network - Ikon B)
-// Asumsi Anda mengganti nama 9.png menjadi 9.jpg agar konsisten
-const CARD_BACK_IMAGE = 'assets/9.jpg'; // Menggunakan 9.jpg sebagai gambar belakang
+const CARD_BACK_IMAGE = 'assets/9.png'; // Menggunakan 9.png sebagai gambar belakang
 
 const GAME_SIZE = 16; 
 
@@ -223,7 +222,7 @@ function saveScore(timeStr, moves) {
 }
 
 function renderLeaderboard() {
-    const scores = getScores();
+    const scores = getScore();
     leaderboardList.innerHTML = '';
     
     if (scores.length === 0) {
@@ -266,4 +265,3 @@ document.addEventListener('DOMContentLoaded', () => {
     
     startButton.disabled = false;
 });
-
