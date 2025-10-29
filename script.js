@@ -1,5 +1,5 @@
-// --- DATA PATH GAMBAR KACAMATA (8 IKON UNIK + 1 BELAKANG KARTU) ---
-// Versi ini sudah disesuaikan dengan file .PNG Anda di /assets
+// --- IMAGE PATH DATA (8 UNIQUE ICONS + 1 CARD BACK) ---
+// This version is adjusted for your .PNG files in /assets
 const CARD_ICONS = [
     'assets/1.png',
     'assets/2.png',
@@ -11,12 +11,12 @@ const CARD_ICONS = [
     'assets/8.png'
 ];
 
-// Gambar Belakang Kartu (Logo Bilions Network - Ikon B)
-const CARD_BACK_IMAGE = 'assets/9.png'; // Menggunakan 9.png sebagai gambar belakang
+// Card Back Image (Bilions Network Logo - B Icon)
+const CARD_BACK_IMAGE = 'assets/9.png'; // Using 9.png as the back image
 
 const GAME_SIZE = 16; 
 
-// --- ELEMEN DOM ---
+// --- DOM ELEMENTS ---
 const gameBoard = document.getElementById('game-board');
 const startButton = document.getElementById('startButton');
 const timerDisplay = document.getElementById('timer');
@@ -27,7 +27,7 @@ const finalTime = document.getElementById('final-time');
 const finalMoves = document.getElementById('final-moves');
 const closeModalButton = document.getElementById('closeModal');
 
-// --- VARIABEL STATE GAME ---
+// --- GAME STATE VARIABLES ---
 let cardsArray = [];
 let cardsFlipped = []; 
 let matchesFound = 0;
@@ -36,9 +36,9 @@ let gameStarted = false;
 let timerInterval;
 let startTime;
 
-// --- FUNGSI UTAMA GAME ---
+// --- MAIN GAME FUNCTIONS ---
 
-// 1. Algoritma Fisher-Yates Shuffle
+// 1. Fisher-Yates Shuffle Algorithm
 function shuffle(array) {
     let currentIndex = array.length, randomIndex;
 
@@ -53,15 +53,14 @@ function shuffle(array) {
     return array;
 }
 
-// 2. Mempersiapkan Data Kartu (Menggandakan dan Mengacak)
+// 2. Prepare Card Data (Duplicate and Shuffle)
 function initializeCards() {
     let gameCards = [...CARD_ICONS, ...CARD_ICONS];
     cardsArray = shuffle(gameCards);
 }
 
-// 3. Membuat Elemen Kartu di DOM
+// 3. Create Card Elements in DOM
 function createBoard() {
-    console.log("Mulai membuat papan (createBoard)..."); // <-- LOG DEBUG 1
     gameBoard.innerHTML = ''; 
     cardsArray.forEach((imagePath, index) => {
         const card = document.createElement('div');
@@ -69,28 +68,18 @@ function createBoard() {
         card.dataset.id = index; 
         card.dataset.image = imagePath; 
 
-        // Bagian Depan Kartu (Ikon Kacamata)
+        // Card Front (Bilions Icon)
         const cardFront = document.createElement('div');
         cardFront.classList.add('card-face', 'card-front');
         const img = document.createElement('img');
-        
-        // --- INI ADALAH DEBUGGING DARI CHATGPT ---
-        console.log('Mencoba memuat gambar:', imagePath); // <-- LOG DEBUG 2
         img.src = imagePath;
-        // ------------------------------------------
-
         cardFront.appendChild(img);
 
-        // Bagian Belakang Kartu (Logo Bilions)
+        // Card Back (Bilions Logo)
         const cardBack = document.createElement('div');
         cardBack.classList.add('card-face', 'card-back');
         const backImg = document.createElement('img');
-        
-        // --- INI ADALAH DEBUGGING DARI CHATGPT ---
-        console.log('Mencoba memuat gambar belakang:', CARD_BACK_IMAGE); // <-- LOG DEBUG 3
         backImg.src = CARD_BACK_IMAGE;
-        // ------------------------------------------
-
         cardBack.appendChild(backImg);
 
         card.appendChild(cardFront);
@@ -99,10 +88,9 @@ function createBoard() {
         card.addEventListener('click', handleCardClick);
         gameBoard.appendChild(card);
     });
-    console.log("Selesai membuat papan."); // <-- LOG DEBUG 4
 }
 
-// 4. Logika Timer
+// 4. Timer Logic
 function startTimer() {
     startTime = Date.now();
     timerInterval = setInterval(() => {
@@ -118,7 +106,7 @@ function stopTimer() {
     clearInterval(timerInterval);
 }
 
-// 5. Penanganan Klik Kartu
+// 5. Card Click Handler
 function handleCardClick(event) {
     if (!gameStarted || cardsFlipped.length >= 2 || event.currentTarget.classList.contains('flip') || event.currentTarget.classList.contains('matched')) {
         return; 
@@ -136,7 +124,7 @@ function handleCardClick(event) {
     }
 }
 
-// 6. Memeriksa Kecocokan Kartu
+// 6. Check for Card Match
 function checkForMatch() {
     const [card1, card2] = cardsFlipped;
     
@@ -159,7 +147,7 @@ function checkForMatch() {
     gameBoard.style.pointerEvents = 'auto'; 
 }
 
-// 7. Mengakhiri Game dan Menampilkan Modal
+// 7. End Game and Display Modal
 function endGame() {
     stopTimer();
     gameStarted = false;
@@ -174,10 +162,10 @@ function endGame() {
     renderLeaderboard();
     
     startButton.disabled = false;
-    startButton.textContent = 'Mulai Game Baru';
+    startButton.textContent = 'Start New Game';
 }
 
-// 8. Logika Memulai Game
+// 8. Game Start Logic
 function startGame() {
     stopTimer();
     gameStarted = true;
@@ -187,7 +175,7 @@ function startGame() {
     timerDisplay.textContent = '00:00';
     
     startButton.disabled = true;
-    startButton.textContent = 'Game Berjalan...'; 
+    startButton.textContent = 'Game In Progress...'; 
 
     initializeCards();
     createBoard();
@@ -195,16 +183,16 @@ function startGame() {
 }
 
 
-// --- FUNGSI LEADERBOARD LOKAL ---
+// --- LOCAL LEADERBOARD FUNCTIONS ---
 
-const LEADERBOARD_KEY = 'bilionShadesLeaderboard';
+const LEADERBOARD_KEY = 'bilionsNetworkMemoryLeaderboard'; // Changed key name
 
 function getScores() {
     try {
         const scores = localStorage.getItem(LEADERBOARD_KEY);
         return scores ? JSON.parse(scores) : [];
     } catch (e) {
-        console.error("Gagal mengambil skor dari localStorage:", e);
+        console.error("Failed to retrieve scores from localStorage:", e);
         return [];
     }
 }
@@ -216,7 +204,7 @@ function saveScore(timeStr, moves) {
     const [minutes, seconds] = timeStr.split(':').map(Number);
     const totalSeconds = (minutes * 60) + seconds;
 
-    scores.push({ time: timeStr, totalSeconds, moves, date: new Date().toLocaleDateString('id-ID') });
+    scores.push({ time: timeStr, totalSeconds, moves, date: new Date().toLocaleDateString('en-US') }); // Changed locale
 
     scores.sort((a, b) => {
         if (a.totalSeconds !== b.totalSeconds) {
@@ -229,38 +217,33 @@ function saveScore(timeStr, moves) {
     try {
         localStorage.setItem(LEADERBOARD_KEY, JSON.stringify(topScores));
     } catch (e) {
-        console.error("Gagal menyimpan skor ke localStorage:", e);
+        console.error("Failed to save scores to localStorage:", e);
     }
 }
 
 function renderLeaderboard() {
-    console.log("Mulai me-render leaderboard..."); // <-- LOG DEBUG 5
-    
-    // INI ADALAH PERBAIKAN TYPO SAYA SEBELUMNYA:
-    const scores = getScores(); // Sebelumnya 'getScore()'
+    const scores = getScores();
     leaderboardList.innerHTML = '';
     
     if (scores.length === 0) {
-        leaderboardList.innerHTML = '<li style="justify-content: center; color: #8b949e;">Belum ada skor. Mainkan sekarang!</li>';
+        leaderboardList.innerHTML = '<li style="justify-content: center; color: #6a95e0;">No scores yet. Play now!</li>'; // Changed text and color
         return;
     }
 
     scores.forEach((score, index) => {
         const listItem = document.createElement('li');
         listItem.innerHTML = `
-            <span>#${index + 1}. ${score.time} (${score.moves} Gerakan)</span>
-            <small style="color: #8b949e;">${score.date}</small>
+            <span>#${index + 1}. ${score.time} (${score.moves} Moves)</span>
+            <small style="color: #6a95e0;">${score.date}</small>
         `;
         leaderboardList.appendChild(listItem);
     });
-    console.log("Selesai me-render leaderboard."); // <-- LOG DEBUG 6
 }
 
 
-// --- TITIK AWAL APLIKASI ---
+// --- APPLICATION ENTRY POINT ---
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Halaman selesai dimuat (DOMContentLoaded)."); // <-- LOG DEBUG 7
     renderLeaderboard(); 
 
     startButton.addEventListener('click', () => {
@@ -282,4 +265,3 @@ document.addEventListener('DOMContentLoaded', () => {
     
     startButton.disabled = false;
 });
-
