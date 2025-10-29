@@ -1,18 +1,18 @@
 // --- DATA PATH GAMBAR KACAMATA (8 IKON UNIK + 1 BELAKANG KARTU) ---
 // PENTING: File-file ini harus ada di folder 'assets/' di repositori GitHub Anda.
 const CARD_ICONS = [
-    'assets/1.jpg',
-    'assets/2.jpg',
-    'assets/3.jpg',
-    'assets/4.jpg',
-    'assets/5.jpg',
-    'assets/6.jpg',
-    'assets/7.jpg',
-    'assets/8.jpg'
+    'assets/1.png', // Diubah ke .png
+    'assets/2.png', // Diubah ke .png
+    'assets/3.png', // Diubah ke .png
+    'assets/4.png', // Diubah ke .png
+    'assets/5.png', // Diubah ke .png
+    'assets/6.png', // Diubah ke .png
+    'assets/7.png', // Diubah ke .png
+    'assets/8.png'  // Diubah ke .png
 ];
 
 // Gambar Belakang Kartu (Logo Bilions Network - Ikon B)
-const CARD_BACK_IMAGE = 'assets/card-back.jpg'; // Menggunakan .jpg
+const CARD_BACK_IMAGE = 'assets/9.png'; // Diubah ke 9.png
 
 const GAME_SIZE = 16; 
 
