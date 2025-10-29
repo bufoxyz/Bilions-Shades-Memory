@@ -1,63 +1,55 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- GANTI [NAMA ANDA] DENGAN NAMA ANDA -->
-    <title>Bilion Shades Memory | By [Nama Anda]</title>
+    <title>Bilions Network Memory Challenge | By [Your Name]</title>
     
-    <!-- Memanggil file CSS eksternal -->
     <link rel="stylesheet" href="style.css"> 
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>👓 Bilion Shades Memory 💰</h1>
-            <p>Uji fokus dan memori Anda dengan ikon kacamata Bilions Network!</p>
+            <h1>⚡ Bilions Network Memory Challenge 💡</h1>
+            <p>Test your focus and memory with Bilions Network icons!</p>
             <div class="stats">
                 <div class="stat-item">
-                    <span>Waktu:</span>
+                    <span>Time:</span>
                     <span id="timer">00:00</span>
                 </div>
                 <div class="stat-item">
-                    <span>Gerakan:</span>
+                    <span>Moves:</span>
                     <span id="moves">0</span>
                 </div>
-                <!-- Tombol "Mulai Game" diubah namanya agar lebih jelas -->
-                <button id="startButton" class="btn">Mulai Game Baru</button> 
+                <button id="startButton" class="btn">Start New Game</button> 
             </div>
         </header>
 
         <hr>
 
-        <!-- Area papan game (akan diisi oleh script.js) -->
         <main id="game-board" class="game-grid"></main>
 
         <aside class="leaderboard-section">
-            <h2>🏆 Leaderboard Lokal (Top 5)</h2>
-            <p>*Dibangun untuk kompetisi antar anggota. Buktikan skor Anda!</p>
+            <h2>🏆 Local Leaderboard (Top 5)</h2>
+            <p>*Built for inter-member competition. Prove your score!</p>
             <ol id="leaderboard-list">
-                <!-- Akan diisi oleh script.js -->
-            </ol>
+                </ol>
         </aside>
 
-        <!-- Modal/Popup ketika menang -->
         <div id="win-modal" class="modal">
             <div class="modal-content">
-                <h2>Selamat! Anda Menang!</h2>
-                <p>Waktu Anda: <span id="final-time"></span></p>
-                <p>Total Gerakan: <span id="final-moves"></span></p>
-                <p>Bagikan skor ini di komunitas!</p>
-                <button id="closeModal" class="btn">Tutup</button>
+                <h2>Congratulations! You Won!</h2>
+                <p>Your Time: <span id="final-time"></span></p>
+                <p>Total Moves: <span id="final-moves"></span></p>
+                <p>Share your score with the community!</p>
+                <button id="closeModal" class="btn">Close</button>
             </div>
         </div>
     </div>
 
-    <!-- Memanggil file JavaScript eksternal TEPAT SEBELUM </body> -->
     <script src="script.js"></script>
 </body>
 </html>
-
