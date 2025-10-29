@@ -61,25 +61,36 @@ function initializeCards() {
 
 // 3. Membuat Elemen Kartu di DOM
 function createBoard() {
+    console.log("Mulai membuat papan (createBoard)..."); // <-- LOG DEBUG 1
     gameBoard.innerHTML = ''; 
     cardsArray.forEach((imagePath, index) => {
         const card = document.createElement('div');
         card.classList.add('card');
         card.dataset.id = index; 
-        card.dataset.image = imagePath; // Kunci pasangan
+        card.dataset.image = imagePath; 
 
         // Bagian Depan Kartu (Ikon Kacamata)
         const cardFront = document.createElement('div');
         cardFront.classList.add('card-face', 'card-front');
         const img = document.createElement('img');
+        
+        // --- INI ADALAH DEBUGGING DARI CHATGPT ---
+        console.log('Mencoba memuat gambar:', imagePath); // <-- LOG DEBUG 2
         img.src = imagePath;
+        // ------------------------------------------
+
         cardFront.appendChild(img);
 
         // Bagian Belakang Kartu (Logo Bilions)
         const cardBack = document.createElement('div');
         cardBack.classList.add('card-face', 'card-back');
         const backImg = document.createElement('img');
+        
+        // --- INI ADALAH DEBUGGING DARI CHATGPT ---
+        console.log('Mencoba memuat gambar belakang:', CARD_BACK_IMAGE); // <-- LOG DEBUG 3
         backImg.src = CARD_BACK_IMAGE;
+        // ------------------------------------------
+
         cardBack.appendChild(backImg);
 
         card.appendChild(cardFront);
@@ -88,6 +99,7 @@ function createBoard() {
         card.addEventListener('click', handleCardClick);
         gameBoard.appendChild(card);
     });
+    console.log("Selesai membuat papan."); // <-- LOG DEBUG 4
 }
 
 // 4. Logika Timer
@@ -222,7 +234,9 @@ function saveScore(timeStr, moves) {
 }
 
 function renderLeaderboard() {
-    // INI ADALAH PERBAIKANNYA:
+    console.log("Mulai me-render leaderboard..."); // <-- LOG DEBUG 5
+    
+    // INI ADALAH PERBAIKAN TYPO SAYA SEBELUMNYA:
     const scores = getScores(); // Sebelumnya 'getScore()'
     leaderboardList.innerHTML = '';
     
@@ -239,12 +253,14 @@ function renderLeaderboard() {
         `;
         leaderboardList.appendChild(listItem);
     });
+    console.log("Selesai me-render leaderboard."); // <-- LOG DEBUG 6
 }
 
 
 // --- TITIK AWAL APLIKASI ---
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("Halaman selesai dimuat (DOMContentLoaded)."); // <-- LOG DEBUG 7
     renderLeaderboard(); 
 
     startButton.addEventListener('click', () => {
@@ -266,3 +282,4 @@ document.addEventListener('DOMContentLoaded', () => {
     
     startButton.disabled = false;
 });
+
