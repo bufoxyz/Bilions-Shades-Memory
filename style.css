@@ -1,4 +1,4 @@
-/* RESET & FONT DASAR */
+/* RESET & BASE FONT */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,9 +6,10 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #0d1117; /* Latar belakang gelap, kesan 'tech/kripto' */
-    color: #c9d1d9;
+    /* Menggunakan font Orbitron sebagai default, Exo 2 sebagai fallback modern */
+    font-family: 'Orbitron', 'Exo 2', sans-serif; 
+    background-color: #0c1825; /* Sangat gelap, mendekati hitam kebiruan */
+    color: #e0f0ff; /* Teks terang, sedikit kebiruan */
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -19,17 +20,25 @@ body {
 .container {
     width: 90%;
     max-width: 800px;
-    background-color: #161b22;
+    background-color: #1a2a3a; /* Biru gelap untuk container */
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Shadow lebih gelap */
     text-align: center;
+    border: 1px solid #2a4058; /* Border tipis untuk kesan tech */
 }
 
-/* HEADER DAN STATS */
+/* HEADER AND STATS */
 header h1 {
-    color: #4CAF50; /* Warna hijau 'keuntungan' */
+    color: #4a90e2; /* Biru cerah untuk judul */
     margin-bottom: 5px;
+    text-shadow: 0 0 8px rgba(74, 144, 226, 0.5); /* Efek glow biru */
+    font-size: 2.2em; /* Ukuran lebih besar */
+}
+
+header p {
+    color: #a0c2e9; /* Teks deskripsi lebih lembut */
+    font-family: 'Exo 2', sans-serif; /* Font sekunder untuk readability */
 }
 
 .stats {
@@ -37,136 +46,147 @@ header h1 {
     justify-content: space-around;
     align-items: center;
     margin: 20px 0;
-    flex-wrap: wrap; /* Agar rapi di HP */
+    flex-wrap: wrap; 
     gap: 15px;
 }
 
 .stat-item span:first-child {
     font-weight: 400;
-    color: #8b949e;
+    color: #a0c2e9; /* Warna teks label stat */
 }
 
 .stat-item span:last-child {
     font-weight: 700;
-    font-size: 1.5em;
-    color: #ffffff;
+    font-size: 1.6em; /* Ukuran lebih besar */
+    color: #ffffff; /* Angka statistik putih bersih */
     display: block;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Efek glow ringan */
 }
 
 .btn {
-    background-color: #0366d6; /* Warna biru 'Discord' */
+    background-color: #4a90e2; /* Biru cerah untuk tombol */
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
+    padding: 12px 25px; /* Tombol sedikit lebih besar */
+    border-radius: 8px; /* Sudut lebih membulat */
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     font-weight: 700;
+    text-transform: uppercase; /* Huruf kapital semua */
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(74, 144, 226, 0.4); /* Shadow biru untuk tombol */
 }
 
 .btn:hover {
-    background-color: #005cc5;
+    background-color: #357bd8; /* Biru lebih gelap saat hover */
+    transform: translateY(-2px); /* Efek angkat tombol */
+}
+
+.btn:disabled {
+    background-color: #3d5a7d; /* Warna abu-abu kebiruan saat disabled */
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
 
 hr {
     border: 0;
     height: 1px;
-    background: #30363d;
-    margin: 20px 0;
+    background: #2a4058; /* Garis pemisah biru gelap */
+    margin: 25px 0;
 }
 
-/* GRID PERMAINAN KARTU */
+/* GAME CARD GRID */
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Grid 4x4 */
-    gap: 10px;
-    perspective: 1000px; /* Diperlukan untuk efek 3D flip */
-    margin: 20px auto;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 12px; /* Jarak antar kartu sedikit lebih besar */
+    perspective: 1000px;
+    margin: 25px auto;
     width: 100%;
-    max-width: 500px; /* Batasi lebar grid agar rapi */
+    max-width: 520px; /* Sedikit lebih lebar */
 }
 
-/* KARTU */
+/* CARD */
 .card {
-    /* Menggunakan aspect-ratio agar kartu tetap kotak */
     aspect-ratio: 1 / 1; 
-    height: auto; 
-    
     position: relative;
     transform-style: preserve-3d;
     cursor: pointer;
-    transition: transform 0.6s;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Animasi flip lebih "pegas" */
+    border-radius: 10px; /* Sudut kartu lebih membulat */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4), 0 0 15px rgba(74, 144, 226, 0.2); /* Shadow lebih menonjol dengan glow biru */
 }
 
 .card.flip {
-    transform: rotateY(180deg); /* Animasi membalik */
-    pointer-events: none; /* Nonaktifkan klik saat terbalik/cocok */
+    transform: rotateY(180deg); 
+    pointer-events: none;
 }
 
 .card-face {
     width: 100%;
     height: 100%;
     position: absolute;
-    backface-visibility: hidden; /* Penting untuk efek flip 3D */
+    backface-visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 10px; 
     padding: 5px;
 }
 
-/* Bagian Depan Kartu (Ikon Kacamata) */
+/* Card Front (Bilions Icon) */
 .card-front {
-    background-color: #21262d; 
-    /* PERBAIKAN: Secara default (kartu belum di-flip) sisi depan ini harus dirotasi 180 deg untuk "tersembunyi" */
+    background-color: #2a4058; /* Warna latar depan kartu saat terbuka */
     transform: rotateY(180deg);
 }
 
-/* INI PENTING: Style untuk SEMUA gambar di dalam kartu */
 .card-face img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain; /* Memastikan gambar tidak terpotong */
+    max-width: 85%; /* Gambar ikon sedikit lebih kecil */
+    max-height: 85%;
+    object-fit: contain; 
 }
 
-/* Bagian Belakang Kartu (Logo Bilions) */
+/* Card Back (Bilions Logo) */
 .card-back {
-    background-color: #0d1117; 
-    border: 3px solid #4CAF50; /* Border hijau keren */
-    /* PERBAIKAN: Secara default sisi belakang harus tidak dirotasi (terlihat) */
+    background-color: #1a2a3a; /* Latar belakang belakang kartu */
+    border: 3px solid #4a90e2; /* Border biru cerah */
     transform: rotateY(0deg); 
 }
 
 .card.matched {
-    /* Visual ketika kartu berhasil dicocokkan */
-    opacity: 0.5; 
+    opacity: 0.3; /* Sedikit lebih transparan saat matched */
     pointer-events: none;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.8), inset 0 0 10px rgba(74, 144, 226, 0.8); /* Glow lebih kuat saat matched */
+    transition: opacity 0.5s ease-out, box-shadow 0.5s ease-out;
 }
 
 /* LEADERBOARD */
 .leaderboard-section {
-    margin-top: 30px;
-    padding: 15px;
-    background-color: #21262d;
-    border-radius: 8px;
+    margin-top: 35px;
+    padding: 20px;
+    background-color: #1a2a3a; /* Biru gelap untuk leaderboard */
+    border-radius: 10px;
     text-align: left;
-    max-width: 500px;
+    max-width: 520px;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid #2a4058;
 }
 
 .leaderboard-section h2 {
-    color: #4CAF50;
+    color: #4a90e2; /* Judul leaderboard biru cerah */
     text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.8em;
 }
 
 .leaderboard-section p {
     text-align: center;
-    font-size: 0.8em;
-    color: #8b949e;
-    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: #a0c2e9; /* Teks deskripsi leaderboard */
+    margin-bottom: 20px;
+    font-family: 'Exo 2', sans-serif;
 }
 
 #leaderboard-list {
@@ -175,12 +195,30 @@ hr {
 }
 
 #leaderboard-list li {
-    padding: 8px 0;
-    border-bottom: 1px solid #30363d;
+    padding: 10px 0;
+    border-bottom: 1px solid #2a4058; /* Garis pemisah biru gelap */
     display: flex;
     justify-content: space-between;
     font-weight: 700;
+    color: #e0f0ff;
+    font-family: 'Exo 2', sans-serif;
+    align-items: center;
 }
+
+#leaderboard-list li:last-child {
+    border-bottom: none;
+}
+
+#leaderboard-list li span {
+    font-size: 1.1em;
+    color: #8ed0ff; /* Warna skor lebih menonjol */
+}
+
+#leaderboard-list li small {
+    color: #6a95e0; /* Warna tanggal lebih lembut */
+    font-size: 0.85em;
+}
+
 
 /* MODAL WINNER */
 .modal {
@@ -190,22 +228,101 @@ hr {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: none; /* Sembunyikan secara default */
+    background-color: rgba(0, 0, 0, 0.85); /* Latar belakang modal lebih gelap */
+    display: none; 
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(5px); /* Efek blur pada background */
 }
 
 .modal-content {
-    background-color: #161b22;
-    padding: 30px;
-    border-radius: 10px;
+    background-color: #1a2a3a; /* Warna background modal */
+    padding: 35px; /* Padding lebih besar */
+    border-radius: 15px; /* Sudut lebih membulat */
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
-    animation: fadeIn 0.5s;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(74, 144, 226, 0.6); /* Shadow dan glow biru */
+    animation: fadeInScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Animasi pop-in lebih hidup */
+    border: 2px solid #4a90e2; /* Border biru cerah */
+    max-width: 400px;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
+.modal-content h2 {
+    color: #4a90e2;
+    font-size: 2.5em; /* Ukuran h2 modal lebih besar */
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.7);
+}
+
+.modal-content p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #e0f0ff;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.modal-content p span {
+    font-weight: 700;
+    color: #8ed0ff;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.8); }
     to { opacity: 1; transform: scale(1); }
+}
+
+/* MEDIA QUERIES for Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        width: 100%;
+        border-radius: 0; /* Tanpa border radius di mobile */
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stat-item span:last-child {
+        font-size: 1.2em;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px 15px;
+    }
+
+    .game-grid {
+        gap: 8px;
+        max-width: 100%;
+        grid-template-columns: repeat(4, 1fr); /* Pastikan tetap 4 kolom di mobile */
+    }
+
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .leaderboard-section {
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    .modal-content {
+        padding: 25px;
+        border-radius: 10px;
+        max-width: 90%;
+    }
+
+    .modal-content h2 {
+        font-size: 2em;
+    }
+
+    .modal-content p {
+        font-size: 1em;
+    }
 }
