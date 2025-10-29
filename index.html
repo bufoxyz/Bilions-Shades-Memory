@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilion Shades Memory | By [Nama Anda]</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>👓 Bilion Shades Memory 💰</h1>
+            <p>Temukan pasangan kacamata yang cocok untuk membuktikan Anda adalah *High-Roller* di Bilions Network!</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span>Waktu:</span>
+                    <span id="timer">00:00</span>
+                </div>
+                <div class="stat-item">
+                    <span>Gerakan:</span>
+                    <span id="moves">0</span>
+                </div>
+                <button id="startButton" class="btn">Mulai Game Baru</button>
+            </div>
+        </header>
+
+        <hr>
+
+        <main id="game-board" class="game-grid">
+            </main>
+
+        <aside class="leaderboard-section">
+            <h2>🏆 Leaderboard Lokal (Top 5)</h2>
+            <p>*Buktikan skor Anda di Discord dengan screenshot! (Data disimpan di browser Anda)</p>
+            <ol id="leaderboard-list">
+                </ol>
+        </aside>
+
+        <div id="win-modal" class="modal">
+            <div class="modal-content">
+                <h2>Selamat! Anda Menang!</h2>
+                <p>Waktu Anda: <span id="final-time"></span></p>
+                <p>Total Gerakan: <span id="final-moves"></span></p>
+                <p>Bagikan skor ini ke Mod Bilions Network untuk pamer!</p>
+                <button id="closeModal" class="btn">Tutup</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
