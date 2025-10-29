@@ -1,97 +1,8 @@
-/* RESET & FONT DASAR */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #0d1117; /* Latar belakang gelap, kesan 'tech/kripto' */
-    color: #c9d1d9;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    padding: 20px;
-}
-
-.container {
-    width: 90%;
-    max-width: 800px;
-    background-color: #161b22;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    text-align: center;
-}
-
-/* HEADER DAN STATS */
-header h1 {
-    color: #4CAF50; /* Warna hijau 'keuntungan' */
-    margin-bottom: 5px;
-}
-
-.stats {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 20px 0;
-    flex-wrap: wrap; /* Agar rapi di HP */
-    gap: 15px;
-}
-
-.stat-item span:first-child {
-    font-weight: 400;
-    color: #8b949e;
-}
-
-.stat-item span:last-child {
-    font-weight: 700;
-    font-size: 1.5em;
-    color: #ffffff;
-    display: block;
-}
-
-.btn {
-    background-color: #0366d6; /* Warna biru 'Discord' */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-weight: 700;
-}
-
-.btn:hover {
-    background-color: #005cc5;
-}
-
-hr {
-    border: 0;
-    height: 1px;
-    background: #30363d;
-    margin: 20px 0;
-}
-
-/* GRID PERMAINAN KARTU */
-.game-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Grid 4x4 */
-    gap: 10px;
-    perspective: 1000px; /* Diperlukan untuk efek 3D flip */
-    margin: 20px auto;
-    width: 100%;
-    max-width: 500px; /* Batasi lebar grid agar rapi */
-}
+/* ... Kode CSS lainnya di atas ... */
 
 /* KARTU */
 .card {
-    /* Menggunakan aspect-ratio agar kartu tetap kotak */
-    aspect-ratio: 1 / 1; 
-    height: auto; /* Dihapus (diganti aspect-ratio) */
-    
+    /* ... (Tetap sama) ... */
     position: relative;
     transform-style: preserve-3d;
     cursor: pointer;
@@ -102,14 +13,14 @@ hr {
 
 .card.flip {
     transform: rotateY(180deg); /* Animasi membalik */
-    pointer-events: none; /* Nonaktifkan klik saat terbalik/cocok */
+    pointer-events: none;
 }
 
 .card-face {
     width: 100%;
     height: 100%;
     position: absolute;
-    backface-visibility: hidden;
+    backface-visibility: hidden; /* <--- PENTING: Menyembunyikan sisi belakang saat kartu terbalik */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,89 +31,23 @@ hr {
 /* Bagian Depan Kartu (Ikon Kacamata) */
 .card-front {
     background-color: #21262d; 
-    transform: rotateY(180deg); /* Awalnya terbalik */
+    /* ROTASI DIPINDAHKAN KE CARD-BACK. Card-front seharusnya HANYA muncul saat di-flip. */
+    transform: rotateY(180deg); /* <-- KEMBALIKAN rotasi 180deg di sini untuk menyembunyikan sisi depan secara default */
 }
 
 /* INI PENTING: Style untuk SEMUA gambar di dalam kartu */
 .card-face img {
     max-width: 90%;
     max-height: 90%;
-    object-fit: contain; /* Memastikan gambar tidak terpotong */
+    object-fit: contain; 
 }
 
 /* Bagian Belakang Kartu (Logo Bilions) */
 .card-back {
     background-color: #0d1117; 
-    border: 3px solid #4CAF50; /* Border hijau keren */
+    border: 3px solid #4CAF50; 
+    /* TAMBAH: Secara default (tanpa .flip) card-back harus terlihat (tidak dirotasi) */
+    transform: rotateY(0deg); 
 }
 
-.card.matched {
-    /* Visual ketika kartu berhasil dicocokkan */
-    opacity: 0.5; 
-    pointer-events: none;
-}
-
-/* LEADERBOARD */
-.leaderboard-section {
-    margin-top: 30px;
-    padding: 15px;
-    background-color: #21262d;
-    border-radius: 8px;
-    text-align: left;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.leaderboard-section h2 {
-    color: #4CAF50;
-    text-align: center;
-}
-
-.leaderboard-section p {
-    text-align: center;
-    font-size: 0.8em;
-    color: #8b949e;
-    margin-bottom: 15px;
-}
-
-#leaderboard-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-#leaderboard-list li {
-    padding: 8px 0;
-    border-bottom: 1px solid #30363d;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 700;
-}
-
-/* MODAL WINNER */
-.modal {
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: none; /* Sembunyikan secara default */
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: #161b22;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
-    animation: fadeIn 0.5s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
+/* ... Kode CSS lainnya di bawah ... */
