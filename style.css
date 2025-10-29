@@ -161,63 +161,7 @@ hr {
     transition: opacity 0.5s ease-out, box-shadow 0.5s ease-out;
 }
 
-/* LEADERBOARD */
-.leaderboard-section {
-    margin-top: 35px;
-    padding: 20px;
-    background-color: #1a2a3a; /* Biru gelap untuk leaderboard */
-    border-radius: 10px;
-    text-align: left;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid #2a4058;
-}
-
-.leaderboard-section h2 {
-    color: #4a90e2; /* Judul leaderboard biru cerah */
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 1.8em;
-}
-
-.leaderboard-section p {
-    text-align: center;
-    font-size: 0.9em;
-    color: #a0c2e9; /* Teks deskripsi leaderboard */
-    margin-bottom: 20px;
-    font-family: 'Exo 2', sans-serif;
-}
-
-#leaderboard-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-#leaderboard-list li {
-    padding: 10px 0;
-    border-bottom: 1px solid #2a4058; /* Garis pemisah biru gelap */
-    display: flex;
-    justify-content: space-between;
-    font-weight: 700;
-    color: #e0f0ff;
-    font-family: 'Exo 2', sans-serif;
-    align-items: center;
-}
-
-#leaderboard-list li:last-child {
-    border-bottom: none;
-}
-
-#leaderboard-list li span {
-    font-size: 1.1em;
-    color: #8ed0ff; /* Warna skor lebih menonjol */
-}
-
-#leaderboard-list li small {
-    color: #6a95e0; /* Warna tanggal lebih lembut */
-    font-size: 0.85em;
-}
+/* Leaderboard Styling Dihapus total */
 
 
 /* MODAL WINNER */
@@ -275,7 +219,7 @@ hr {
     .container {
         padding: 20px;
         width: 100%;
-        border-radius: 0; /* Tanpa border radius di mobile */
+        border-radius: 0;
     }
 
     header h1 {
@@ -299,7 +243,7 @@ hr {
     .game-grid {
         gap: 8px;
         max-width: 100%;
-        grid-template-columns: repeat(4, 1fr); /* Pastikan tetap 4 kolom di mobile */
+        grid-template-columns: repeat(4, 1fr);
     }
 
     .card {
@@ -307,10 +251,7 @@ hr {
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .leaderboard-section {
-        max-width: 100%;
-        border-radius: 0;
-    }
+    /* Leaderboard media query styling Dihapus */
 
     .modal-content {
         padding: 25px;
