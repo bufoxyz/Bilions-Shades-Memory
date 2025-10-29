@@ -222,7 +222,8 @@ function saveScore(timeStr, moves) {
 }
 
 function renderLeaderboard() {
-    const scores = getScore();
+    // INI ADALAH PERBAIKANNYA:
+    const scores = getScores(); // Sebelumnya 'getScore()'
     leaderboardList.innerHTML = '';
     
     if (scores.length === 0) {
