@@ -5,22 +5,25 @@
     padding: 0;
 }
 
-/* VARIBEL WARNA UNTUK SKEMA NEON */
+/* VARIBEL WARNA UNTUK SKEMA BILLIONS (Hijau Neon) */
 :root {
-    --color-neon: #00f0ff; 
-    --color-dark-blue: #0c1825; 
-    --color-mid-blue: #1a2a3a; 
-    --color-border: #2a4058;
+    --color-billions: #00f575; /* Hijau Neon Billions */
+    --color-dark-bg: #101010; /* Latar belakang sangat gelap */
+    --color-mid-bg: #1a1a1a; /* Warna container solid */
+    --color-border: #333333;
 }
 
 body {
     font-family: 'Chakra Petch', sans-serif; 
+    
+    /* LATAR BELAKANG BUATAN ANDA */
     background-image: url('assets/bilions_bg_pattern.png'); 
     background-repeat: repeat; 
     background-size: cover; 
     background-attachment: fixed; 
     background-position: center center;
-    background-color: var(--color-dark-blue); 
+    background-color: var(--color-dark-bg); 
+    
     color: #e0f0ff; 
     display: flex;
     justify-content: center;
@@ -32,7 +35,7 @@ body {
 .container {
     width: 90%;
     max-width: 800px;
-    background-color: var(--color-mid-blue); 
+    background-color: var(--color-mid-bg); 
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8); 
@@ -44,9 +47,9 @@ body {
 header h1 {
     font-family: 'Chakra Petch', sans-serif;
     font-weight: 700;
-    color: var(--color-neon); 
+    color: var(--color-billions); 
     margin-bottom: 5px;
-    text-shadow: 0 0 15px rgba(0, 240, 255, 0.8), 0 0 5px rgba(0, 240, 255, 0.5); 
+    text-shadow: 0 0 15px rgba(0, 245, 117, 0.8), 0 0 5px rgba(0, 245, 117, 0.5); 
     font-size: 2.5em; 
     line-height: 1.1; 
 }
@@ -56,7 +59,7 @@ header p {
     font-family: 'Exo 2', sans-serif; 
 }
 
-/* KREDIT/TAUTAN STYLING */
+/* KREDIT PRIBADI (By @Redd660) */
 .credit {
     margin-top: 10px;
     margin-bottom: 5px;
@@ -66,16 +69,59 @@ header p {
 }
 
 .credit a {
-    color: var(--color-neon); 
+    color: var(--color-billions); 
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s ease;
-    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5); 
+    text-shadow: 0 0 5px rgba(0, 245, 117, 0.5); 
 }
 
 .credit a:hover {
     color: #fff; 
-    text-shadow: 0 0 8px var(--color-neon); 
+    text-shadow: 0 0 8px var(--color-billions); 
+}
+
+/* CTA LINKS (Discord & X) */
+.cta-links {
+    margin: 15px 0;
+}
+
+.cta-links a {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-discord {
+    background-color: #5865f2; /* Discord Blue */
+    color: white;
+}
+
+.cta-x {
+    background-color: #000000; /* X/Twitter Black */
+    color: white;
+    border: 1px solid #444;
+}
+
+.cta-links a:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* POWERED BY HEADER */
+.powered-by-header {
+    margin: 15px 0 10px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.85em;
+    color: var(--color-billions);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px rgba(0, 245, 117, 0.4);
 }
 
 
@@ -97,14 +143,14 @@ header p {
     font-family: 'Exo 2', sans-serif; 
     font-weight: 700;
     font-size: 1.7em; 
-    color: var(--color-neon); 
+    color: var(--color-billions); 
     display: block;
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.6); 
+    text-shadow: 0 0 10px rgba(0, 245, 117, 0.6); 
 }
 
 .btn {
-    background-color: var(--color-neon); 
-    color: var(--color-dark-blue); 
+    background-color: var(--color-billions); 
+    color: var(--color-dark-bg); 
     border: none;
     padding: 12px 25px; 
     border-radius: 8px; 
@@ -113,13 +159,13 @@ header p {
     font-weight: 700;
     text-transform: uppercase; 
     letter-spacing: 0.5px;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5); 
+    box-shadow: 0 0 20px rgba(0, 245, 117, 0.5); 
 }
 
 .btn:hover {
-    background-color: #00c3d0; 
+    background-color: #00c960; 
     transform: translateY(-2px); 
-    box-shadow: 0 0 30px rgba(0, 240, 255, 0.8);
+    box-shadow: 0 0 30px rgba(0, 245, 117, 0.8);
 }
 
 .btn:disabled {
@@ -133,7 +179,7 @@ header p {
 hr {
     border: 0;
     height: 1px;
-    background: #2a4058; 
+    background: #333333; 
     margin: 25px 0;
 }
 
@@ -178,7 +224,7 @@ hr {
 
 /* Card Front (Bilions Icon) */
 .card-front {
-    background-color: #2a4058; 
+    background-color: #2a2a2a; 
     transform: rotateY(180deg);
 }
 
@@ -190,16 +236,16 @@ hr {
 
 /* Card Back (Bilions Logo) */
 .card-back {
-    background-color: var(--color-mid-blue); 
-    border: 3px solid var(--color-neon); 
-    box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.5); 
+    background-color: var(--color-mid-bg); 
+    border: 3px solid var(--color-billions); 
+    box-shadow: inset 0 0 10px rgba(0, 245, 117, 0.5); 
     transform: rotateY(0deg); 
 }
 
 .card.matched {
     opacity: 0.2; 
     pointer-events: none;
-    box-shadow: 0 0 15px var(--color-neon), inset 0 0 15px var(--color-neon); 
+    box-shadow: 0 0 15px var(--color-billions), inset 0 0 15px var(--color-billions); 
     transition: opacity 0.5s ease-out, box-shadow 0.5s ease-out;
 }
 
@@ -208,27 +254,27 @@ hr {
 .dynamic-sticker-container {
     position: fixed;
     z-index: 100;
-    transition: transform 0.2s ease-out; /* Gerakan halus saat digoyangkan */
+    transition: transform 0.2s ease-out; 
 }
 
 /* TALI (LINE) STICKER */
 .sticker-line {
     position: absolute;
     width: 2px;
-    height: 25px; /* Panjang tali */
-    background-color: var(--color-neon);
+    height: 25px; 
+    background-color: var(--color-billions); 
     top: -25px; 
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 0 5px var(--color-neon);
+    box-shadow: 0 0 5px var(--color-billions);
 }
 
 .dynamic-sticker {
     display: block;
-    width: 70px; /* Ukuran stiker, sesuaikan */
+    width: 70px; 
     height: auto;
-    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.6));
-    border-radius: 50%; /* Jika stiker Anda bulat */
+    filter: drop-shadow(0 0 10px rgba(0, 245, 117, 0.6)); 
+    border-radius: 50%; 
 }
 
 /* Posisi Stiker Kiri */
@@ -260,21 +306,21 @@ hr {
 }
 
 .modal-content {
-    background-color: var(--color-mid-blue); 
+    background-color: var(--color-mid-bg); 
     padding: 35px; 
     border-radius: 15px; 
     text-align: center;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.6); 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 245, 117, 0.6); 
     animation: fadeInScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; 
-    border: 2px solid var(--color-neon); 
+    border: 2px solid var(--color-billions); 
     max-width: 400px;
 }
 
 .modal-content h2 {
-    color: var(--color-neon);
+    color: var(--color-billions);
     font-size: 2.5em; 
     margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+    text-shadow: 0 0 10px rgba(0, 245, 117, 0.7);
 }
 
 .modal-content p {
@@ -286,8 +332,8 @@ hr {
 
 .modal-content p span {
     font-weight: 700;
-    color: var(--color-neon);
-    text-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
+    color: var(--color-billions);
+    text-shadow: 0 0 5px rgba(0, 245, 117, 0.4);
 }
 
 @keyframes fadeInScale {
@@ -302,8 +348,8 @@ hr {
         width: 100%;
         border-radius: 0; 
     }
-    
-    /* Sembunyikan stiker di HP agar tidak mengganggu UI utama */
+
+    /* Sembunyikan stiker di HP */
     #sticker-left, #sticker-right {
         display: none !important;
     }
