@@ -7,24 +7,20 @@
 
 /* VARIBEL WARNA UNTUK SKEMA NEON */
 :root {
-    --color-neon: #00f0ff; /* Biru Neon */
-    --color-dark-blue: #0c1825; /* Latar belakang gelap */
-    --color-mid-blue: #1a2a3a; /* Warna container solid */
+    --color-neon: #00f0ff; 
+    --color-dark-blue: #0c1825; 
+    --color-mid-blue: #1a2a3a; 
     --color-border: #2a4058;
 }
 
 body {
-    /* MENGGUNAKAN FONT CHAKRA PETCH */
     font-family: 'Chakra Petch', sans-serif; 
-    
-    /* LATAR BELAKANG BUATAN ANDA DITERAPKAN DI SINI */
-    background-image: url('assets/bilions_bg_pattern.png'); /* <--- PASTIKAN NAMA FILE INI BENAR */
+    background-image: url('assets/bilions_bg_pattern.png'); 
     background-repeat: repeat; 
     background-size: cover; 
     background-attachment: fixed; 
     background-position: center center;
-    background-color: var(--color-dark-blue); /* Warna cadangan */
-    
+    background-color: var(--color-dark-blue); 
     color: #e0f0ff; 
     display: flex;
     justify-content: center;
@@ -36,7 +32,6 @@ body {
 .container {
     width: 90%;
     max-width: 800px;
-    /* BACKGROUND TETAP SOLID AGAR GAMBAR TIDAK MASUK KE KOTAK GAME */
     background-color: var(--color-mid-blue); 
     padding: 30px;
     border-radius: 12px;
@@ -208,6 +203,46 @@ hr {
     transition: opacity 0.5s ease-out, box-shadow 0.5s ease-out;
 }
 
+/* --- STIKER DINAMIS (BERGERAK) STYLING --- */
+
+.dynamic-sticker-container {
+    position: fixed;
+    z-index: 100;
+    transition: transform 0.2s ease-out; /* Gerakan halus saat digoyangkan */
+}
+
+/* TALI (LINE) STICKER */
+.sticker-line {
+    position: absolute;
+    width: 2px;
+    height: 25px; /* Panjang tali */
+    background-color: var(--color-neon);
+    top: -25px; 
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 5px var(--color-neon);
+}
+
+.dynamic-sticker {
+    display: block;
+    width: 70px; /* Ukuran stiker, sesuaikan */
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.6));
+    border-radius: 50%; /* Jika stiker Anda bulat */
+}
+
+/* Posisi Stiker Kiri */
+#sticker-left {
+    top: 50px; 
+    left: 50px; 
+}
+
+/* Posisi Stiker Kanan */
+#sticker-right {
+    top: 50px; 
+    right: 50px; 
+}
+
 
 /* MODAL WINNER */
 .modal {
@@ -266,6 +301,11 @@ hr {
         padding: 20px;
         width: 100%;
         border-radius: 0; 
+    }
+    
+    /* Sembunyikan stiker di HP agar tidak mengganggu UI utama */
+    #sticker-left, #sticker-right {
+        display: none !important;
     }
 
     header h1 {
