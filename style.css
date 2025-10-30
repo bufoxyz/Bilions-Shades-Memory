@@ -57,15 +57,23 @@ header h1 {
 header p {
     color: #a0c2e9; 
     font-family: 'Exo 2', sans-serif; 
+    margin-bottom: 10px; /* Tambahkan margin-bottom untuk memisahkan dari kredit */
 }
 
 /* KREDIT PRIBADI (By dbdoo) */
 .credit {
     margin-top: 10px;
-    margin-bottom: 15px; /* Tambah jarak karena CTA dihapus */
+    margin-bottom: 15px; /* Tambah jarak untuk memisahkan dari powered-by */
     font-family: 'Exo 2', sans-serif;
     font-size: 0.9em;
     color: #a0c2e9; 
+    text-align: center; /* Pastikan teks di dalamnya rata tengah */
+    width: 100%; /* Pastikan mengambil lebar penuh untuk perataan center */
+}
+
+.credit span {
+    display: inline-block; /* Agar bisa menerapkan margin/padding jika perlu */
+    vertical-align: middle; /* Pastikan vertikal rata tengah dengan link */
 }
 
 .credit a {
@@ -74,6 +82,8 @@ header p {
     font-weight: 700;
     transition: color 0.3s ease;
     text-shadow: 0 0 5px rgba(0, 245, 117, 0.5); 
+    display: inline-block; /* Agar bisa menerapkan vertical-align */
+    vertical-align: middle; /* Pastikan vertikal rata tengah dengan span */
 }
 
 .credit a:hover {
@@ -81,12 +91,12 @@ header p {
     text-shadow: 0 0 8px var(--color-billions); 
 }
 
-/* CTA LINKS DIHAPUS DARI KODE CSS */
-
 /* POWERED BY HEADER (SEKARANG JADI LINK) */
 .powered-by-header {
-    margin: 15px 0 10px;
+    margin: 15px 0 25px; /* Sesuaikan margin untuk jarak yang lebih baik */
     font-family: 'Exo 2', sans-serif;
+    text-align: center; /* Pastikan rata tengah */
+    width: 100%; /* Pastikan mengambil lebar penuh untuk perataan center */
 }
 
 .powered-by-header a {
@@ -97,6 +107,7 @@ header p {
     text-transform: uppercase;
     text-shadow: 0 0 5px rgba(0, 245, 117, 0.4);
     transition: opacity 0.3s;
+    display: inline-block; /* Pastikan link bisa diatur secara horizontal */
 }
 
 .powered-by-header a:hover {
