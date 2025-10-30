@@ -25,6 +25,11 @@ const finalTime = document.getElementById('final-time');
 const finalMoves = document.getElementById('final-moves');
 const closeModalButton = document.getElementById('closeModal');
 
+// Elemen Stiker Baru
+const stickerLeft = document.getElementById('sticker-left');
+const stickerRight = document.getElementById('sticker-right');
+
+
 // --- GAME STATE VARIABLES ---
 let cardsArray = [];
 let cardsFlipped = []; 
@@ -176,6 +181,50 @@ function startGame() {
     createBoard();
     startTimer();
 }
+
+
+// --- LOGIKA STIKER BERGERAK ---
+
+function handleDeviceOrientation(event) {
+    // Membaca data kemiringan (beta dan gamma)
+    const tiltLR = event.gamma; // Kemiringan Kiri-Kanan (roll)
+    const tiltFB = event.beta;  // Kemiringan Depan-Belakang (pitch)
+    
+    // Faktor sensifitas: menentukan seberapa jauh stiker bergerak
+    const sensitivity = 0.5; 
+    
+    // Menghitung perpindahan halus (simulasi gerakan tergantung)
+    const movementX = tiltLR * sensitivity;
+    const movementY = tiltFB * sensitivity;
+
+    // Menerapkan perubahan ke stiker kiri (pergerakan berlawanan untuk efek kedalaman)
+    if (stickerLeft) {
+        stickerLeft.style.transform = `translate(${movementX}px, ${movementY}px)`;
+    }
+    
+    // Menerapkan perubahan ke stiker kanan (sedikit dibalik)
+    if (stickerRight) {
+        stickerRight.style.transform = `translate(${-movementX}px, ${-movementY}px)`;
+    }
+}
+
+// Memastikan event listener ditambahkan hanya jika browser mendukung
+if (window.DeviceOrientationEvent) {
+    window.addEventListener('deviceorientation', handleDeviceOrientation, false);
+}
+// Untuk menguji di desktop, Anda bisa menggunakan event 'mousemove' sebagai cadangan:
+/*
+document.addEventListener('mousemove', (event) => {
+    const movementX = (event.clientX / window.innerWidth - 0.5) * 40; // max 20px
+    const movementY = (event.clientY / window.innerHeight - 0.5) * 40; // max 20px
+    if (stickerLeft) {
+        stickerLeft.style.transform = `translate(${movementX}px, ${movementY}px)`;
+    }
+    if (stickerRight) {
+        stickerRight.style.transform = `translate(${-movementX}px, ${-movementY}px)`;
+    }
+});
+*/
 
 
 // --- APPLICATION ENTRY POINT ---
