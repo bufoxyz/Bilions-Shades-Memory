@@ -187,22 +187,21 @@ function startGame() {
 
 function handleDeviceOrientation(event) {
     // Membaca data kemiringan (beta dan gamma)
-    const tiltLR = event.gamma; // Kemiringan Kiri-Kanan (roll)
-    const tiltFB = event.beta;  // Kemiringan Depan-Belakang (pitch)
+    const tiltLR = event.gamma; 
+    const tiltFB = event.beta;  
     
-    // Faktor sensifitas: menentukan seberapa jauh stiker bergerak
+    // Faktor sensifitas
     const sensitivity = 0.5; 
     
-    // Menghitung perpindahan halus (simulasi gerakan tergantung)
+    // Menghitung perpindahan halus
     const movementX = tiltLR * sensitivity;
     const movementY = tiltFB * sensitivity;
 
-    // Menerapkan perubahan ke stiker kiri (pergerakan berlawanan untuk efek kedalaman)
+    // Menerapkan perubahan ke stiker
     if (stickerLeft) {
         stickerLeft.style.transform = `translate(${movementX}px, ${movementY}px)`;
     }
     
-    // Menerapkan perubahan ke stiker kanan (sedikit dibalik)
     if (stickerRight) {
         stickerRight.style.transform = `translate(${-movementX}px, ${-movementY}px)`;
     }
@@ -212,19 +211,6 @@ function handleDeviceOrientation(event) {
 if (window.DeviceOrientationEvent) {
     window.addEventListener('deviceorientation', handleDeviceOrientation, false);
 }
-// Untuk menguji di desktop, Anda bisa menggunakan event 'mousemove' sebagai cadangan:
-/*
-document.addEventListener('mousemove', (event) => {
-    const movementX = (event.clientX / window.innerWidth - 0.5) * 40; // max 20px
-    const movementY = (event.clientY / window.innerHeight - 0.5) * 40; // max 20px
-    if (stickerLeft) {
-        stickerLeft.style.transform = `translate(${movementX}px, ${movementY}px)`;
-    }
-    if (stickerRight) {
-        stickerRight.style.transform = `translate(${-movementX}px, ${-movementY}px)`;
-    }
-});
-*/
 
 
 // --- APPLICATION ENTRY POINT ---
